@@ -55,18 +55,17 @@ var timer = {
     timer.nextQuestionInterval();
   },
   nextQuestionInterval: function() {
-    if(trivia.index < 6) {
-      trivia.index++;
-      timer.time = 8;
+    trivia.index++;
+    timer.time = 8;
 
-      $("#time").html('<div class="card-subtitle mb-2 text-center my-text">' +
-      '<span>Time Until Next Question: </span><span id="timer">8</span><span> Seconds</span>' +
-      '</div>');
-      timer.start();
-      setTimeout(displayQuestion, 1000 * 8);
-    } else {
-      gameOver();
-    }
-    
+    $("#time").html('<div class="card-subtitle mb-2 text-center my-text">' +
+    '<span>Time Until Next Question: </span><span id="timer">8</span><span> Seconds  </span><button id="skip">Next Question</button>' +
+    '</div>');
+    timer.start();
+    myTimeout = setTimeout(displayQuestion, 1000 * 8);
+  },
+  skip: function() {
+    timer.stop();
+    displayQuestion();
   }
 };
