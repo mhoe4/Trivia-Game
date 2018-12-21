@@ -27,6 +27,10 @@ button:hover {
   color: white;
 }
 
+#restart{
+  margin-bottom: 10px;
+}
+
 /* Media query to gif when width shrinks */
 @media screen and (max-width: 768px) {
 
