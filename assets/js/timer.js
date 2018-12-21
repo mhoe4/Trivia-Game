@@ -8,7 +8,6 @@ var intervalId;
 var clockRunning = false;
 
 var myTimeout;
-
 // Our timer object
 var timer = {
 
@@ -35,12 +34,13 @@ var timer = {
   stop: function() {
 
     // Use clearInterval to stop the count here and set the clock to not be running.
+    clearTimeout(myTimeout);
     clearInterval(intervalId);
     clockRunning = false;
   },
   count: function() {
 
-    // increment time by 1, remember we cant use "this" here.
+    // decrement time by 1.
     timer.time--;
 
     // show the converted time in the "timer" div.
@@ -48,7 +48,26 @@ var timer = {
   },
   timeUp: function() {
     timer.stop();
+    numberUnanswered++;
     $("#trivia").empty();
-    $("#trivia").append("<div>times up</div>");
+    $("#trivia").append('<div>Times Up</div>');
+    $("#trivia").append('<br>');
+    $("#trivia").append('<img src="assets/images/times-up.gif" alt="times-up" class="gif" >');
+    timer.nextQuestionInterval();
+  },
+  nextQuestionInterval: function() {
+    if(trivia.index < 6) {
+      trivia.index++;
+      timer.time = 4;
+
+      $("#time").html('<div class="card-subtitle mb-2 text-center my-text">' +
+      '<span>Time Until Next Question: </span><span id="timer">4</span><span> Seconds</span>' +
+      '</div>');
+      timer.start();
+      setTimeout(displayQuestion, 1000 * 4);
+    } else {
+      gameOver();
+    }
+    
   }
 };
