@@ -50,7 +50,7 @@ var timer = {
     timer.stop();
     numberUnanswered++;
     $("#trivia").empty();
-    $("#trivia").append('<div>Times Up</div>');
+    $("#trivia").append('<div><b>Times Up!</b></div>');
     $("#trivia").append('<img src="assets/images/times-up.gif" alt="times-up" class="gif" >');
     timer.nextQuestionInterval();
   },
