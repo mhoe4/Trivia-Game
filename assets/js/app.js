@@ -32,7 +32,6 @@ function displayQuestion() {
     question.addClass("text-center");
     question.text(trivia.questions[trivia.index].question);
     $("#trivia").append(question);
-    $(".trivia-question").append("<br>");
   
     var answer_a = $("<button>");
     answer_a.addClass("trivia-answer");
@@ -90,8 +89,7 @@ function checkUserAnswer(){
 function gameOver(){
   $("#time").html(restartButton);
   $("#trivia").empty();
-  $("#trivia").append('<br>');
-  $("#trivia").append('<div>Game Over!</div>');
+  $("#trivia").append('<div><b>Game Over!</b></div>');
   $("#trivia").append('<div>Correct: ' + numberCorrect + '</div>');
   $("#trivia").append('<div>Incorrect: ' + numberIncorrect + '</div>');
   $("#trivia").append('<div>Un-answered: ' + numberUnanswered + '</div>');
