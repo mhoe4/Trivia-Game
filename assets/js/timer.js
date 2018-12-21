@@ -56,13 +56,13 @@ var timer = {
   },
   nextQuestionInterval: function() {
     trivia.index++;
-    timer.time = 8;
+    timer.time = 10;
 
     $("#time").html('<div class="card-subtitle mb-2 text-center my-text">' +
-    '<span>Time Until Next Question: </span><span id="timer">8</span><span> Seconds  </span><button id="skip">Next Question</button>' +
+    '<span>Time Until Next Question: </span><span id="timer">10</span><span> Seconds  </span><button id="skip">Next Question</button>' +
     '</div>');
     timer.start();
-    myTimeout = setTimeout(displayQuestion, 1000 * 8);
+    myTimeout = setTimeout(displayQuestion, 1000 * 10);
   },
   skip: function() {
     timer.stop();
