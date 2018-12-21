@@ -1,6 +1,9 @@
 var numberCorrect = 0;
 var numberIncorrect = 0;
 var numberUnanswered = 0;
+var restartButton = $("<button>");
+restartButton.attr('id', 'restart');
+restartButton.text('Restart Game');
 
 $(document).ready(function() {
   // Display game instructions in fancy box when game info button is clicked
@@ -16,6 +19,7 @@ $(document).ready(function() {
   
   $("#start").on("click", displayQuestion);
   $(document).on("click", ".trivia-answer", checkUserAnswer);
+  $(document).on("click", "#restart", restartGame);
   
 });
 
@@ -62,25 +66,40 @@ function displayQuestion() {
 function checkUserAnswer(){
   timer.stop();
   $("#trivia").empty();
-  if (this.value === trivia.questions[trivia.index].answer){
+  if (this.value === trivia.questions[trivia.index].answerLetter){
     numberCorrect++;
-    $("#trivia").append('<div>Correct!</div>');
-    $("#trivia").append('<br>');
-    $("#trivia").append('<img src="" alt="correct-gif" class="gif" >');
+    $("#trivia").append('<div><b>Correct!</b></div>');
+    $("#trivia").append('<div><b>Answer: </b>' + trivia.questions[trivia.index].answer + '</div>');
+    $("#trivia").append('<div><b>Explanation: </b>' + trivia.questions[trivia.index].explanation + '</div>');
+    $("#trivia").append('<img src="' + trivia.questions[trivia.index].gif + '" alt="correct-gif" class="gif" >');
     timer.nextQuestionInterval();
   } else {
     numberIncorrect++;
-    $("#trivia").append('<div>Incorrect!</div>');
-    $("#trivia").append('<br>');
-    $("#trivia").append('<img src="" alt="incorrect-gif" class="gif" >');
+    $("#trivia").append('<div><b>Incorrect!</b></div>');
+    $("#trivia").append('<div><b>Answer: </b>' + trivia.questions[trivia.index].answer + '</div>');
+    $("#trivia").append('<div><b>Explanation: </b>' + trivia.questions[trivia.index].explanation + '</div>');
+    $("#trivia").append('<img src="assets/images/incorrect.gif" alt="incorrect-gif" class="gif" >');
     timer.nextQuestionInterval();
   }
 };
 
 function gameOver(){
+  $("#time").html(restartButton);
   $("#trivia").empty();
+  $("#trivia").append('<br>');
   $("#trivia").append('<div>Game Over!</div>');
+  $("#trivia").append('<div>Correct: ' + numberCorrect + '</div>');
+  $("#trivia").append('<div>Incorrect: ' + numberIncorrect + '</div>');
+  $("#trivia").append('<div>Un-answered: ' + numberUnanswered + '</div>');
   $("#trivia").append('<br>');
   $("#trivia").append('<img src="assets/images/game-over.gif" alt="incorrect-gif" class="gif" >');
+}
+
+function restartGame(){
+  numberCorrect = 0;
+  numberIncorrect = 0;
+  numberUnanswered = 0;
+  trivia.index = 0;
+  displayQuestion();
 }
 

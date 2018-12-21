@@ -51,20 +51,19 @@ var timer = {
     numberUnanswered++;
     $("#trivia").empty();
     $("#trivia").append('<div>Times Up</div>');
-    $("#trivia").append('<br>');
     $("#trivia").append('<img src="assets/images/times-up.gif" alt="times-up" class="gif" >');
     timer.nextQuestionInterval();
   },
   nextQuestionInterval: function() {
     if(trivia.index < 6) {
       trivia.index++;
-      timer.time = 4;
+      timer.time = 8;
 
       $("#time").html('<div class="card-subtitle mb-2 text-center my-text">' +
-      '<span>Time Until Next Question: </span><span id="timer">4</span><span> Seconds</span>' +
+      '<span>Time Until Next Question: </span><span id="timer">8</span><span> Seconds</span>' +
       '</div>');
       timer.start();
-      setTimeout(displayQuestion, 1000 * 4);
+      setTimeout(displayQuestion, 1000 * 8);
     } else {
       gameOver();
     }
