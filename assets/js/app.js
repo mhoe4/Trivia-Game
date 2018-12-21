@@ -72,21 +72,19 @@ function displayQuestion() {
 function checkUserAnswer(){
   timer.stop();
   $("#trivia").empty();
+  
   if (this.value === trivia.questions[trivia.index].answerLetter){
     numberCorrect++;
     $("#trivia").append('<div><b>Correct!</b></div>');
-    $("#trivia").append('<div><b>Answer: </b>' + trivia.questions[trivia.index].answer + '</div>');
-    $("#trivia").append('<div><b>Explanation: </b>' + trivia.questions[trivia.index].explanation + '</div>');
-    $("#trivia").append('<img src="' + trivia.questions[trivia.index].gif + '" alt="correct-gif" class="gif" >');
-    timer.nextQuestionInterval();
   } else {
     numberIncorrect++;
     $("#trivia").append('<div><b>Incorrect!</b></div>');
-    $("#trivia").append('<div><b>Answer: </b>' + trivia.questions[trivia.index].answer + '</div>');
-    $("#trivia").append('<div><b>Explanation: </b>' + trivia.questions[trivia.index].explanation + '</div>');
-    $("#trivia").append('<img src="assets/images/incorrect.gif" alt="incorrect-gif" class="gif" >');
-    timer.nextQuestionInterval();
   }
+
+  $("#trivia").append('<div><b>Answer: </b>' + trivia.questions[trivia.index].answer + '</div>');
+  $("#trivia").append('<div><b>Explanation: </b>' + trivia.questions[trivia.index].explanation + '</div>');
+  $("#trivia").append('<img src="' + trivia.questions[trivia.index].gif + '" alt="gif" class="gif" >');
+  timer.nextQuestionInterval();
 };
 
 function gameOver(){
