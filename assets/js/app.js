@@ -6,22 +6,17 @@ restartButton.attr('id', 'restart');
 restartButton.text('Restart Game');
 
 $(document).ready(function() {
-  // Display game instructions in fancy box when game info button is clicked
-  $("#game-info").on("click", function() {
-
-    $.fancybox.open('<div class="message text-center"><h2>How to Play!</h2>\
-    <p></p>\
-    <p></p>\
-    <p></p>\
-    <p></p>\
-    </div>');
-  });
-  
   $("#start").on("click", displayQuestion);
   $(document).on("click", ".trivia-answer", checkUserAnswer);
   $(document).on("click", "#restart", restartGame);
   $(document).on("click", "#skip", timer.skip);
-  
+
+  // add button for user help
+  // 
+  // 
+  // 
+  // 
+  // 
 });
 
 function displayQuestion() {
