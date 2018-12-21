@@ -13,84 +13,25 @@ body {
   width: 400px;
 }
 
-/* h1 {
-  color: rgb(6,228,189);
-  background-image: url("../images/gems.jpg");
-  display:inline-block;
-  border-radius: 5px;
-  padding: 33px 30px 10px 30px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-} */
-
-/* #my-sound-btn {
-  background-color: rgb(90, 255, 13);
-  margin-top: 10px;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
+button {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid darkgreen;
+  color: white;
+  margin: 1px;
+  display: inline-block;
+  font-size: 16px;
 }
 
-#my-buttons {
-  margin-top: 10px;
+button:hover {
+  background-color: darkgreen;
+  color: white;
 }
 
-#game-info {
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
-}
+/* Media query to gif when width shrinks */
+@media screen and (max-width: 768px) {
 
-.gem {
-  width: 75px;
-  height: 75px;
-  margin: 20px;
-}
-
-.my-text {
-  font-weight: bolder;
-  font-size: 32px;
-}
-
-.my-target-number {
-  background-color: rgb(116,141,249);
-  width: 50%;
-  margin-left:50%;
-}
-
-.my-win-loss {
-  background-color: rgb(254,67,51);
-  width: 60%;
-}
-
-.my-user-score {
-  background-color: rgb(232,163,12);
-  margin-left: 12.5%;
-  width: 75%;
-}
-
-p {
-  font-size: 20px;
-} */
-
-/* Media query to shrink gems and center cards correctly when screen width shrinks */
-/* @media screen and (max-width: 768px) {
-  
-  .my-target-number {
-    background-color: rgb(116,141,249);
-    width: 50%;
-    margin-left:25%;
+  .gif {
+    height: 100px;
+    width: 200px;
   }
-
-  .my-win-loss {
-    background-color: rgb(254,67,51);
-    width: 60%;
-    margin-left:20%;
-  }
-
-  .gem {
-    width: 50px;
-    height: 50px;
-    margin: 15px;
-  }
-} */
+}
